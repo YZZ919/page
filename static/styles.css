@@ -205,7 +205,8 @@ a {
   grid-template-columns: repeat(2, minmax(160px, 1fr));
   gap: 18px;
   align-content: start;
-  justify-self: end;
+  justify-self: center;
+  grid-column: 1 / -1;
   max-width: 460px;
   width: 100%;
   animation: rise 0.9s ease 0.1s forwards;
