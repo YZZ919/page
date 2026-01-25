@@ -1,0 +1,20 @@
+﻿{{ define "main" }}
+<section class="single">
+  <p class="eyebrow">模块 / Module</p>
+  <h1>{{ .Title }}</h1>
+  <div class="single-content">
+    {{ .Content }}
+  </div>
+  {{ if .Pages }}
+  <div class="list-grid">
+    {{ range .Pages }}
+    <a class="list-card" href="{{ .RelPermalink }}">
+      <h2>{{ .Title }}</h2>
+      <p class="muted">点击进入 · Coming soon</p>
+    </a>
+    {{ end }}
+  </div>
+  {{ end }}
+  <a class="btn ghost" href="/">← 返回主页 / Back</a>
+</section>
+{{ end }}
