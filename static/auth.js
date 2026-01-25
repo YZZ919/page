@@ -8,7 +8,8 @@
   const input = gate.querySelector('input[name="password"]');
   const error = gate.querySelector('.gate-error');
   const HASH = '2a357e5984a0aa9210a46a3866d8bb57831f74893a6552554a72e5eeb3e41739';
-  const KEY = 'site_unlock_hash';
+  const KEY = 'site_unlock_state';
+  const TTL_MS = 60 * 60 * 1000;
 
   const setLocked = (locked) => {
     document.body.classList.toggle('locked', locked);
@@ -25,11 +26,25 @@
   };
 
   const unlock = () => {
-    localStorage.setItem(KEY, HASH);
+    const payload = { hash: HASH, ts: Date.now() };
+    localStorage.setItem(KEY, JSON.stringify(payload));
     setLocked(false);
   };
 
-  const hasAccess = () => localStorage.getItem(KEY) === HASH;
+  const hasAccess = () => {
+    const raw = localStorage.getItem(KEY);
+    if (!raw) {
+      return false;
+    }
+    try {
+      const data = JSON.parse(raw);
+      const validHash = data && data.hash === HASH;
+      const fresh = data && typeof data.ts === 'number' && (Date.now() - data.ts) < TTL_MS;
+      return Boolean(validHash && fresh);
+    } catch (err) {
+      return false;
+    }
+  };
 
   if (hasAccess()) {
     setLocked(false);
