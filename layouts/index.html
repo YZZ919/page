@@ -1,5 +1,5 @@
 ﻿{{ define "main" }}
-<section class="hero">
+<section class="hero hero-clover">
   <div class="hero-main">
     <p class="eyebrow">个人主页 / Personal</p>
     <h1>{{ .Site.Title }}</h1>
@@ -16,42 +16,23 @@
       {{ end }}
     </div>
   </div>
-  <div class="hero-card">
-    <h2>关于 / About</h2>
-    <div class="about-media">
-      <img src="/images/about.png" alt="Tom and Jerry illustration" />
-    </div>
-    <p class="zh">你好，我是 Tom，偏好简洁、克制、实用的网页体验。</p>
-    <p class="en">Hi, I'm Tom. I like clean, restrained, and useful web experiences.</p>
-  </div>
-</section>
-
-<section class="section modules">
-  <div class="section-title">
-    <h2>模块 / Modules</h2>
-    <p class="muted">羽毛球 · 摄影 · 股票 · 科研</p>
-  </div>
-  <div class="modules-grid">
-    <article class="module-card">
-      <h3>羽毛球 / Badminton</h3>
-      <p class="zh">节奏、爆发力与专注。</p>
-      <p class="en">Rhythm, explosiveness, and focus.</p>
-    </article>
-    <article class="module-card">
-      <h3>摄影 / Photography</h3>
-      <p class="zh">记录光影与情绪。</p>
-      <p class="en">Capturing light and emotions.</p>
-    </article>
-    <article class="module-card">
-      <h3>股票 / Stocks</h3>
-      <p class="zh">研究趋势与长期价值。</p>
-      <p class="en">Studying trends and long-term value.</p>
-    </article>
-    <article class="module-card">
-      <h3>科研 / Research</h3>
-      <p class="zh">探索问题背后的原理。</p>
-      <p class="en">Exploring the principles behind problems.</p>
-    </article>
+  <div class="clover" aria-label="模块入口">
+    <a class="clover-card" href="/badminton/">
+      <h2>羽毛球 / Badminton</h2>
+      <p class="muted">点击进入 · Coming soon</p>
+    </a>
+    <a class="clover-card" href="/photography/">
+      <h2>摄影 / Photography</h2>
+      <p class="muted">点击进入 · Coming soon</p>
+    </a>
+    <a class="clover-card" href="/stocks/">
+      <h2>股票 / Stocks</h2>
+      <p class="muted">点击进入 · Coming soon</p>
+    </a>
+    <a class="clover-card" href="/research/">
+      <h2>科研 / Research</h2>
+      <p class="muted">点击进入 · Coming soon</p>
+    </a>
   </div>
 </section>
 {{ end }}
