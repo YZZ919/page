@@ -134,6 +134,21 @@ a {
   opacity: 0;
 }
 
+.about-media {
+  margin: 14px 0 16px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 24px rgba(22, 30, 26, 0.12);
+  background: #f0e7db;
+}
+
+.about-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .divider {
   height: 1px;
   background: var(--line);
