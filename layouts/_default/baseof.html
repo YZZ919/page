@@ -4,6 +4,17 @@
     {{ partial "head.html" . }}
   </head>
   <body>
+    <div id="gate" class="gate" aria-hidden="true">
+      <div class="gate-card" role="dialog" aria-modal="true" aria-labelledby="gate-title">
+        <p id="gate-title" class="gate-title">请输入密码</p>
+        <p class="gate-hint">提示：我的生日</p>
+        <form class="gate-form" autocomplete="off">
+          <input type="password" name="password" placeholder="密码" required />
+          <button type="submit">进入</button>
+        </form>
+        <p class="gate-error" aria-live="polite"></p>
+      </div>
+    </div>
     <main class="page">
       {{ block "main" . }}{{ end }}
     </main>
