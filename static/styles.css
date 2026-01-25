@@ -370,6 +370,17 @@ a {
   margin: 0;
 }
 
+.photo-link {
+  display: block;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.photo-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
 .photo-grid li img {
   width: 100%;
   height: auto;
