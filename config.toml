@@ -1,0 +1,10 @@
+baseURL = "https://example.com/"
+languageCode = "zh-cn"
+title = "Tom"
+disableKinds = ["taxonomy", "taxonomyTerm"]
+
+[params]
+  tagline_zh = "简洁双语个人主页"
+  tagline_en = "A clean, bilingual personal page"
+  email = "you@example.com"
+  github = "https://github.com/yourname"
