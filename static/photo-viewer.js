@@ -11,10 +11,13 @@
   const rotateButtons = viewer.querySelectorAll('[data-rotate]');
 
   let rotation = 0;
+  let scale = 1;
+  const MIN_SCALE = 0.5;
+  const MAX_SCALE = 3;
 
   const applyRotation = () => {
     if (img) {
-      img.style.transform = `rotate(${rotation}deg)`;
+      img.style.transform = `rotate(${rotation}deg) scale(${scale})`;
     }
   };
 
@@ -25,6 +28,7 @@
     const alt = link.querySelector('img')?.getAttribute('alt') || '照片预览';
 
     rotation = Number.isFinite(initial) ? initial : 0;
+    scale = 1;
     if (source) {
       source.setAttribute('srcset', fullWebp || '');
     }
@@ -57,6 +61,21 @@
       applyRotation();
     });
   });
+
+  viewer.addEventListener(
+    'wheel',
+    (event) => {
+      if (!viewer.classList.contains('is-active')) {
+        return;
+      }
+      event.preventDefault();
+      const delta = event.deltaY;
+      const step = delta > 0 ? -0.1 : 0.1;
+      scale = Math.min(MAX_SCALE, Math.max(MIN_SCALE, scale + step));
+      applyRotation();
+    },
+    { passive: false }
+  );
 
   viewer.addEventListener('click', (event) => {
     if (event.target === viewer || event.target === viewer.querySelector('.photo-viewer__backdrop')) {
