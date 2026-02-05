@@ -2,6 +2,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{{ .Site.Title }}</title>
 <meta name="description" content="{{ .Site.Params.tagline_en }}" />
-<link rel="stylesheet" href="/styles.css" />
-<script src="/auth.js" defer></script>
-<script src="/photo-viewer.js" defer></script>
+<link rel="stylesheet" href="{{ "styles.css" | relURL }}" />
+<script src="{{ "auth.js" | relURL }}" defer></script>
+<script src="{{ "photo-viewer.js" | relURL }}" defer></script>
