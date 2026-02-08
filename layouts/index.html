@@ -1,38 +1,141 @@
 ﻿{{ define "main" }}
-<section class="hero hero-clover">
-  <div class="hero-main">
-    <p class="eyebrow">个人主页 / Personal</p>
-    <h1>{{ .Site.Title }}</h1>
-    <p class="tagline">
-      <span class="zh">{{ .Site.Params.tagline_zh }}</span>
-      <span class="en">{{ .Site.Params.tagline_en }}</span>
-    </p>
-    <div class="actions">
-      {{ with .Site.Params.email }}
-      <a class="btn primary" href="mailto:{{ . }}">{{ . }}</a>
-      {{ end }}
-      {{ with .Site.Params.github }}
-      <a class="btn ghost" href="{{ . }}" target="_blank" rel="noopener">GitHub</a>
-      {{ end }}
+<section class="mag-home">
+  <header class="mag-masthead">
+    <p class="mag-topline">PERSONAL EDITION · ISSUE 2026</p>
+    <div class="mag-brand-row">
+      <div class="mag-brand">
+        <h1>{{ .Site.Title }}</h1>
+        <p class="mag-tagline">
+          <span>{{ .Site.Params.tagline_zh }}</span>
+          <span>{{ .Site.Params.tagline_en }}</span>
+        </p>
+      </div>
+      <div class="mag-quicklinks">
+        {{ with .Site.Params.email }}
+        <a href="mailto:{{ . }}">{{ . }}</a>
+        {{ end }}
+        {{ with .Site.Params.github }}
+        <a href="{{ . }}" target="_blank" rel="noopener">GitHub</a>
+        {{ end }}
+      </div>
     </div>
-  </div>
-  <div class="clover" aria-label="模块入口">
-    <a class="clover-card" href="/badminton/">
-      <h2>羽毛球 / Badminton</h2>
-      <p class="muted">点击进入 · Coming soon</p>
+    <nav class="mag-nav" aria-label="Homepage sections">
+      <a href="/photography/">Photography</a>
+      <a href="/badminton/">Badminton</a>
+      <a href="/stocks/">Stocks</a>
+      <a href="/research/">Research</a>
+    </nav>
+  </header>
+
+  <section class="lead-layout" aria-label="Featured stories">
+    <a class="lead-feature" href="/photography/">
+      <img
+        src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1600&q=80"
+        alt="黑白摄影现场"
+        loading="eager"
+        decoding="async"
+      />
+      <div class="lead-overlay">
+        <p class="story-kicker">Cover Story</p>
+        <h2>Photography as a Daily Practice</h2>
+        <p>从按下快门到整理作品，让每一次记录都成为长期叙事的一部分。</p>
+      </div>
     </a>
-    <a class="clover-card" href="/photography/">
-      <h2>摄影 / Photography</h2>
-      <p class="muted">点击进入 · Coming soon</p>
-    </a>
-    <a class="clover-card" href="/stocks/">
-      <h2>股票 / Stocks</h2>
-      <p class="muted">点击进入 · Coming soon</p>
-    </a>
-    <a class="clover-card" href="/research/">
-      <h2>科研 / Research</h2>
-      <p class="muted">点击进入 · Coming soon</p>
-    </a>
-  </div>
+
+    <div class="lead-side">
+      <a class="side-story" href="/badminton/">
+        <img
+          src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80"
+          alt="羽毛球训练"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="side-body">
+          <p class="story-kicker">Training Log</p>
+          <h3>Badminton: Rhythm & Recovery</h3>
+          <p class="muted">节奏、体能、复盘，拆解每周训练周期。</p>
+        </div>
+      </a>
+      <a class="side-story" href="/research/">
+        <img
+          src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?auto=format&fit=crop&w=1200&q=80"
+          alt="研究与阅读"
+          loading="lazy"
+          decoding="async"
+        />
+        <div class="side-body">
+          <p class="story-kicker">Notebook</p>
+          <h3>Research: Notes in Progress</h3>
+          <p class="muted">把论文阅读、实验记录与问题清单持续沉淀。</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="mag-section">
+    <div class="mag-section-head">
+      <p class="section-label">Current Topics</p>
+      <span class="line"></span>
+    </div>
+    <div class="module-stream" aria-label="Main modules">
+      <a class="module-story" href="/photography/">
+        <img
+          src="https://images.unsplash.com/photo-1455849318743-b2233052fcff?auto=format&fit=crop&w=1200&q=80"
+          alt="旅行摄影"
+          loading="lazy"
+          decoding="async"
+        />
+        <h3>Photography</h3>
+        <p>Travel, portrait and visual editing workflow.</p>
+      </a>
+      <a class="module-story" href="/badminton/">
+        <img
+          src="https://images.unsplash.com/photo-1471341971476-ae15ff5dd4ea?auto=format&fit=crop&w=1200&q=80"
+          alt="运动记录"
+          loading="lazy"
+          decoding="async"
+        />
+        <h3>Badminton</h3>
+        <p>训练拆解、技术修正与赛后复盘记录。</p>
+      </a>
+      <a class="module-story" href="/stocks/">
+        <img
+          src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1200&q=80"
+          alt="数据与代码"
+          loading="lazy"
+          decoding="async"
+        />
+        <h3>Stocks</h3>
+        <p>Market observation, trade diary and risk control.</p>
+      </a>
+      <a class="module-story" href="/research/">
+        <img
+          src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80"
+          alt="科研协作"
+          loading="lazy"
+          decoding="async"
+        />
+        <h3>Research</h3>
+        <p>Reading papers, building ideas, testing assumptions.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="mag-section">
+    <div class="mag-section-head">
+      <p class="section-label">Editorial Note</p>
+      <span class="line"></span>
+    </div>
+    <div class="editorial-note">
+      <p>
+        This homepage follows an editorial, black-and-white visual language inspired by LFI-style magazine layouts:
+        strict grid, generous whitespace, and image-first storytelling.
+      </p>
+      <p>
+        图片来源：
+        <a href="https://unsplash.com/" target="_blank" rel="noopener">Unsplash</a>
+      </p>
+    </div>
+  </section>
 </section>
 {{ end }}
